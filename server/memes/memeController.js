@@ -30,6 +30,7 @@ module.exports = {
     Meme.findRandom().limit(10).exec(function(err, memes){
       if( err ) { return err; }
       response.status(200).send({ result: memes });
+    });
   },
 
   buildMeme: function(request, response){
