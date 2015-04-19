@@ -105,9 +105,12 @@ module.exports = {
 };
 
 function download(uri, filename, callback){
+  var options = {
+    uri: uri
+  };
   console.log('made it into download');
-  request.head(uri, function(err, res, body){
+  request.head(options, function(err, res, body){
     if( err ) throw err;
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    request(options).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 }
