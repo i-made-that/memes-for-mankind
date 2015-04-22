@@ -8,6 +8,7 @@ module.exports = function (app, express) {
 
   app.use(cors());
   // explicitly naming all the folders where we're serving our different apps
+  app.use('/', express.static(__dirname + '/../../client/landing'));
   app.use('/cc', express.static(__dirname + '/../../client/chromecast-app'));
   app.use('/sender', express.static(__dirname + '/../../client/sender-app'));
   // and their dependencies
